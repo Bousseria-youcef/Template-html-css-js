@@ -1,3 +1,17 @@
+// toggle sping class on icon
+
+document.querySelector(".toggle-settings .fa-gear").onclick = function () {
+    this.classList.toggle("fa-spin");
+    
+//toggle class open on main setting box
+
+document.querySelector(".settings-box").classList.toggle("open");
+};
+
+
+
+
+
 let landingPage = document.querySelector(".landing-page");
 
 

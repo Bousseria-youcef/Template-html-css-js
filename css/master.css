@@ -19,16 +19,23 @@ body {
 }
 .settings-box.open {
   left: 0;
+  
 }
-.settings-box .fa-gear{
-position: absolute;
-right: -30px;
-top: 100px;
-background-color: #fff;
-padding: 8px 0;
-width: 30px;
-text-align: center;
-cursor: pointer;
+.settings-box .toggle-settings {
+
+  background-color: #fff;
+  position: absolute;
+  right: -30px;
+  top: 100px;
+
+  text-align: center;
+  cursor: pointer;
+  font-size: 20px;
+}
+.settings-box .toggle-settings .fa-gear {
+  padding: 8px 0;
+  width: 30px;
+
 }
 .settings-box .settings-cont {
 
