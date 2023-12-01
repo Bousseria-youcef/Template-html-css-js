@@ -1,3 +1,10 @@
+
+let mainColors =  localStorage.getItem("color_option");
+
+
+if(mainColors !== null){
+    document.documentElement.style.setProperty('--main--color', localStorage.getItem("color_option"));
+};
 // toggle sping class on icon
 
 document.querySelector(".toggle-settings .fa-gear").onclick = function () {
@@ -15,10 +22,23 @@ const colorsli = document.querySelectorAll(".colors-list li");
 
 colorsli.forEach( li => {
     li.addEventListener("click", (e) => {
-
         
         //set color on root
         document.documentElement.style.setProperty('--main--color', e.target.dataset.color);
+
+        //set color on local storage
+ 
+       localStorage.setItem("color_option" , e.target.dataset.color );
+      
+       // Remove Active class from all childrens
+       
+       e.target.parentElement.querySelectorAll(".active").forEach(element => {
+        element.classList.remove("active");
+    });
+
+    // add avctive class on element 
+    e.target.classList.add("active");
+
     });
 
 } );
@@ -35,9 +55,6 @@ setInterval(() => {
     landingPage.style.backgroundImage = 'url("img/' + imgsArray[randomNumber] + '")';
 
 }, 10000 );
-
-
-
 
 
 
