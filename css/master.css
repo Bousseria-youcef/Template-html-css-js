@@ -1,6 +1,9 @@
 :root {
  --main--color: #ff9800;
 }
+*{
+  box-sizing: border-box;
+}
 body {
    font-family: 'Open Sans', sans-serif;
 
@@ -27,7 +30,6 @@ body {
   position: absolute;
   right: -30px;
   top: 100px;
-
   text-align: center;
   cursor: pointer;
   font-size: 20px;
@@ -38,7 +40,11 @@ body {
 
 }
 .settings-box .option-box {
-  padding: 20px;
+  padding: 10px;
+  text-align: center;
+  background-color: #EEE;
+  margin: 10PX;
+  border-radius: 10%;
 
 }
 .settings-box .option-box h4 {
@@ -49,19 +55,21 @@ color: #666;
   list-style: none;
   text-align: center;
   padding: 0;
+  margin: 10px 0 0 ;
 
 }
 .settings-box .option-box .colors-list  li {
-width: 20px;
-height: 20px;
+width: 25px;
+height: 25px;
 background-color: #333;
 border-radius: 50%;
 cursor: pointer;
-opacity: .5;
+
 display: inline-block;
+border: 3px solid #EEE;
 }
 .settings-box .option-box .colors-list  li.active {
-  opacity: 1;
+  border-color: #fff;
   }
 
   .settings-box .option-box .colors-list  li:first-child {
@@ -146,6 +154,7 @@ position: absolute;
     z-index: 2;
     color: white;
     text-align: center;
+    width: 100%;
   } 
   .introduction-text h1 {
     font-size: 34px;

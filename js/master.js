@@ -3,7 +3,17 @@ let mainColors =  localStorage.getItem("color_option");
 
 
 if(mainColors !== null){
-    document.documentElement.style.setProperty('--main--color', localStorage.getItem("color_option"));
+    document.documentElement.style.setProperty('--main--color', mainColors);
+
+    document.querySelectorAll(".colors-list li").forEach(element => {
+        element.classList.remove("active");
+        
+        if(element.dataset.color === mainColors){
+            element.classList.add("active");
+        }
+
+    });
+
 };
 // toggle sping class on icon
 
@@ -37,7 +47,7 @@ colorsli.forEach( li => {
     });
 
     // add avctive class on element 
-    e.target.classList.add("active");
+    e.target.classList.add("active"); 
 
     });
 
@@ -55,8 +65,6 @@ setInterval(() => {
     landingPage.style.backgroundImage = 'url("img/' + imgsArray[randomNumber] + '")';
 
 }, 10000 );
-
-
 
 
 
