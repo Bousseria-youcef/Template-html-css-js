@@ -66,6 +66,33 @@ setInterval(() => {
 
 }, 10000 );
 
+//Switch Random background option
+const RandomBackEl = document.querySelectorAll(".random-backgrounds span");
+
+RandomBackEl.forEach( span => {
+    span.addEventListener("click", (e) => {
+        
+        //set color on root
+        document.documentElement.style.setProperty('--main--color', e.target.dataset.color);
+
+        //set color on local storage
+ 
+       localStorage.setItem("color_option" , e.target.dataset.color );
+      
+       // Remove Active class from all childrens
+       
+       e.target.parentElement.querySelectorAll(".active").forEach(element => {
+        element.classList.remove("active");
+    });
+
+    // add avctive class on element 
+    e.target.classList.add("active"); 
+
+    });
+
+} );
+
+
 
 
 
