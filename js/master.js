@@ -58,29 +58,59 @@ colorsli.forEach( li => {
 
 //Get Random Number
 
-setInterval(() => {
+let backgroundOption = true ;
+
+let backgroundInterval ;
+
+// check if there's  local storage random background item
+
+let backgroundLocalItem = localStorage.getItem("background_Option");
+
+
+if( backgroundLocalItem !== null){
+
+    if(backgroundLocalItem === 'true'){
+        backgroundOption = true ; 
+    }else {
+        backgroundOption = false ; 
+    }
+   // remove all active class
+   document.querySelectorAll(".random-backgrounds span").forEach(element => {
+    element.classList.remove("active");
+});
+   
+if( backgroundLocalItem === 'true') {
+document.querySelector(".random-backgrounds .yes ").classList.add("active"); }
+else {
+    document.querySelector(".random-backgrounds  .no ").classList.add("active");
+}
+
+
+}
+   
+function randomizeImgs () {
+
+if (backgroundOption === true) {
+    
+    backgroundInterval = setInterval(() => {
 
     let randomNumber = Math.floor( Math.random() * imgsArray.length  ) ;
 
     landingPage.style.backgroundImage = 'url("img/' + imgsArray[randomNumber] + '")';
 
-}, 10000 );
+}, 1000 );
+}
+}
+
+randomizeImgs();
 
 //Switch Random background option
+
 const RandomBackEl = document.querySelectorAll(".random-backgrounds span");
 
 RandomBackEl.forEach( span => {
     span.addEventListener("click", (e) => {
         
-        //set color on root
-        document.documentElement.style.setProperty('--main--color', e.target.dataset.color);
-
-        //set color on local storage
- 
-       localStorage.setItem("color_option" , e.target.dataset.color );
-      
-       // Remove Active class from all childrens
-       
        e.target.parentElement.querySelectorAll(".active").forEach(element => {
         element.classList.remove("active");
     });
@@ -88,17 +118,41 @@ RandomBackEl.forEach( span => {
     // add avctive class on element 
     e.target.classList.add("active"); 
 
+  if (e.target.dataset.background === 'yes') {
+    backgroundOption = true;
+
+      localStorage.setItem("background_Option" ,   backgroundOption);
+
+      
+    
+    randomizeImgs();
+
+  } else {
+    backgroundOption = false;
+    localStorage.setItem("background_Option" ,   backgroundOption);
+    
+    clearInterval(backgroundInterval);
+  }
+
     });
 
 } );
 
 
+let myp = document.querySelector("p");
+
+myp.onclick = function(){
+ let newp =   myp.cloneNode(true);
+ newp.className =  "clone";
+ document.body.appendChild(newp);
+};
 
 
-
-
-
-
+document.addEventListener("click", function(e){
+    if(e.target.className === 'clone'){
+        console.log("Im Cloned"); 
+    }
+ });
 
 
 
