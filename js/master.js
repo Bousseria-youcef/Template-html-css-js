@@ -155,6 +155,27 @@ document.addEventListener("click", function(e){
  });
 
 
+//select skills selector
 
+let ourskills = document.querySelector(".skills");
+
+window.onscroll = function () {
+    
+    let skillsofsettop = ourskills.offsetTop;
+    let skillsoutsetheight = ourskills.offsetHeight;
+    let windowheight = this.innerHeight;
+    let windowscrolltop = this.pageYOffset;
+
+
+
+   if(windowscrolltop > (skillsofsettop + skillsoutsetheight - windowheight)) {
+      let allskills = document.querySelectorAll(".skill-box .skill-progress  span");
+      allskills.forEach(  skill => {
+        skill.style.width = skill.dataset.progress;
+      });
+
+   }
+
+};
 
 
