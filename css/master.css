@@ -307,4 +307,33 @@ padding-bottom: 50px;
   cursor: pointer;
 }
 
+.popup-overlay {
+  position: fixed;
+  background-color: rgba(0,0,0, .7);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+ z-index: 10000;
+
+}
+
+.popupbox {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  border: solid #ccc 1px;
+  transform: translate( -50% , -50% );
+  z-index: 10001;
+  padding: 20px;
+  background-color: #FFF;
+  border-radius: 5px;
+
+}
+.popupimg {
+  max-width: 100%;
+}
+
+
+
 /* End Gallery*/
