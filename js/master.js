@@ -42,12 +42,7 @@ colorsli.forEach( li => {
       
        // Remove Active class from all childrens
        
-       e.target.parentElement.querySelectorAll(".active").forEach(element => {
-        element.classList.remove("active");
-    });
-
-    // add avctive class on element 
-    e.target.classList.add("active"); 
+       HandleActive(e);
 
     });
 
@@ -106,25 +101,18 @@ randomizeImgs();
 
 //Switch Random background option
 
-const RandomBackEl = document.querySelectorAll(".random-backgrounds span");
+const RandomBackEl = document.querySelectorAll(".option-box span");
 
 RandomBackEl.forEach( span => {
     span.addEventListener("click", (e) => {
         
-       e.target.parentElement.querySelectorAll(".active").forEach(element => {
-        element.classList.remove("active");
-    });
-
-    // add avctive class on element 
-    e.target.classList.add("active"); 
+        HandleActive(e);
 
   if (e.target.dataset.background === 'yes') {
     backgroundOption = true;
 
       localStorage.setItem("background_Option" ,   backgroundOption);
 
-      
-    
     randomizeImgs();
 
   } else {
@@ -194,6 +182,17 @@ ourGallery.forEach( img => {
 
         let popupbox = document.createElement("div");
         popupbox.className = 'popupbox';
+
+        if (img.alt !== null) {
+
+            let heading = document.createElement("h3");
+            heading.className = 'heading';
+            let ourtext = document.createTextNode(img.alt);
+    
+            heading.appendChild(ourtext);
+            popupbox.appendChild(heading);
+            
+        }
         
         let popupimg = document.createElement("img");
             popupimg.src =     img.src ; 
@@ -201,9 +200,89 @@ ourGallery.forEach( img => {
             popupimg.className= 'popupimg'
             overlay.appendChild(popupbox);
             popupbox.appendChild(popupimg);
-          
+
+
+            let closebutton = document.createElement("span");
+             
+            closebutton.className = 'close-botton';
+
+            let closebuttontext = document.createTextNode("X");
+            closebutton.appendChild(closebuttontext);
+            popupbox.appendChild(closebutton);
+
+
+   
+
+    });
+});
+
+// close popup
+
+document.addEventListener("click" ,  function (e) {
+
+    if(e.target.className == 'close-botton'){
+     
+        document.querySelector(".popup-overlay").remove();
         
+    }
+    
+
+});
+
+// select all bullets
+
+
+function scrollToSomewhere (element) {
+    
+element.forEach( ele => {
+
+    ele.addEventListener("click" , (e) => {
+ 
+     document.querySelector(e.target.dataset.section).scrollIntoView({
+         behavior: 'smooth'
+     });
+ 
+    });
+ 
+ });
+
+}
+
+const allbullets = document.querySelectorAll(".nav-bollets .bullet");
+scrollToSomewhere(allbullets);
+
+const alllinks = document.querySelectorAll(".links a");
+
+scrollToSomewhere(alllinks);
+
+// Handle Active State 
+
+function HandleActive(ev){
+ 
+    ev.target.parentElement.querySelectorAll(".active").forEach(element => {
+
+        element.classList.remove("active");
 
     });
 
-});
+    // add avctive class on element 
+    ev.target.classList.add("active"); 
+}
+
+let bulletsSpan = document.querySelectorAll(".bullets-option span");
+let bulletsContainer = document.querySelector(".nav-bollets");
+
+
+bulletsSpan.forEach(span => {
+    span.addEventListener("click", (e) => {
+
+        if(span.dataset.display=== 'show') {
+            bulletsContainer.style.display = 'block';
+
+        }else {
+            bulletsContainer.style.display = 'none';
+        }
+    })
+}
+
+)
