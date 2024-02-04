@@ -53,7 +53,7 @@ body {
   text-align: center;
   background-color: #EEE;
   margin: 10PX;
-  border-radius: 10%;
+  border-radius: 5px;
 
 }
 .settings-box .option-box h4 {
@@ -117,7 +117,21 @@ border: 3px solid #EEE;
   .settings-box .option-box span.active  {
     opacity: 1;
   }
-         
+        
+  .settings-box .reset-options {
+
+  background-color: #f44336;
+  border: none;
+  width: 178px;
+  margin: 10px auto;
+  display: block;
+  color: #FFF;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  }
 /* End Settings Box */
 /*Start New bullets*/
 

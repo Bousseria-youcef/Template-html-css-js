@@ -47,10 +47,6 @@ colorsli.forEach( li => {
     });
 
 } );
-
-
-
-
 //Get Random Number
 
 let backgroundOption = true ;
@@ -270,19 +266,57 @@ function HandleActive(ev){
 }
 
 let bulletsSpan = document.querySelectorAll(".bullets-option span");
+
 let bulletsContainer = document.querySelector(".nav-bollets");
+
+let bulletlocalitem = localStorage.getItem("bullets-option");
+
+if(bulletlocalitem !== null){
+
+    bulletsSpan.forEach(span => {
+span.classList.remove("active");
+
+    });
+
+    if(bulletlocalitem === 'block'){
+
+        bulletsContainer.style.display = 'block';
+        document.querySelector(".bullets-option .yes").classList.add("active");
+
+    }else{
+        bulletsContainer.style.display = 'none';
+        document.querySelector(".bullets-option .no").classList.add("active");
+    }
+}
+
+
+
 
 
 bulletsSpan.forEach(span => {
     span.addEventListener("click", (e) => {
 
-        if(span.dataset.display=== 'show') {
+        if(span.dataset.display === 'show') {
+
             bulletsContainer.style.display = 'block';
+
+            localStorage.setItem("bullets-option",'block');
 
         }else {
             bulletsContainer.style.display = 'none';
+            localStorage.setItem("bullets-option",'none');
         }
     })
 }
 
-)
+);
+
+document.querySelector(".reset-options").onclick = function(){
+  //localStorage.clear();
+   
+    localStorage.removeItem("color_option");
+    localStorage.removeItem("background_Option");
+    localStorage.removeItem("bullets-option");
+    // reload window
+    window.location.reload();
+}
