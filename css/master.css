@@ -10,7 +10,7 @@ body {
   }
 
   .container{
-    width: 1170px;
+    
     padding-left: 15px;
     padding-right: 15px;
     margin: auto;
@@ -219,13 +219,15 @@ position: absolute;
     font-weight: bold;
 
 }
-.header-area .links {
-  list-style: none;
+.header-area .links-container{
   width: 100%;
   text-align: right;
+}
+.header-area .links {
+  list-style: none;
+  
   padding-left: 0;
-  padding-right: 20px;
-  font-size: 15px;
+
   
 }
 .header-area .links li {
@@ -242,9 +244,22 @@ position: absolute;
   .header-area .links li a:hover,
   .header-area .links  li a.active
    {
-    color: var(--main--color);
-    
-    
+    color: var(--main--color);  
+  }
+  .header-area .toggle-menu {
+  background: none;
+  border: none;
+  width: 40px;
+  cursor: pointer;
+  margin-top: 15px;
+  display: none;
+  
+  }
+  .header-area .toggle-menu span {
+  display: block;
+  background-color: #FFF;
+  height: 3.5px;
+  margin-bottom: 4px;
   }
   
   .introduction-text{
@@ -269,6 +284,19 @@ position: absolute;
   font-size: 20px;
   margin: 0;
 }
+ 
+ @media (max-width : 991px) {
+  .header-area .links {
+    display: none;
+  }
+  .header-area .toggle-menu  {
+    display: inline-block; 
+  }
+ }
+
+
+
+
 /* End landing page */
 
 /* Start About us */
@@ -765,3 +793,32 @@ background-color: rgba(218, 218, 218, 0.19);
 }
 
 /* End  contact us*/
+/* start  Grid system*/
+@media (min-width:576px) {  /* Landscape Phones */ 
+  .container{
+    max-width: 540px;
+  }
+
+  
+}
+
+@media (min-width:768px) {  /* Medium devices tablet  */ 
+  .container{
+    max-width: 720px;
+  }
+  
+}
+
+@media (min-width:992px) {  /* desktops   */ 
+  .container{
+    max-width: 960px;
+  }
+
+
+}
+@media (min-width:1200px) {  /* Large devices desktops  */ 
+  .container{
+    max-width: 1140px;
+  }
+}
+/* End   Grid system*/
