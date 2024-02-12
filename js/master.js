@@ -320,3 +320,29 @@ document.querySelector(".reset-options").onclick = function(){
     // reload window
     window.location.reload();
 }
+
+
+let toggleBtn = document.querySelector(".toggle-menu"); 
+let tlinks =  document.querySelector(".links");
+
+toggleBtn.onclick = function(e){
+    //stop Propagation
+    e.stopPropagation();
+    // toggle classe open and close
+    this.classList.toggle("menu-active");
+    tlinks.classList.toggle("open");
+}
+// Click Anywhere Outside menu and toggle buttomn
+
+document.addEventListener("click" , (e) => {
+    if (e.target !== toggleBtn  && e.target !== tlinks ) {
+        if(tlinks.classList.contains("open")){
+             // toggle classe open and close
+             toggleBtn.classList.toggle("menu-active");
+             tlinks.classList.toggle("open");
+        }
+    }
+})
+tlinks.onclick = function(e){
+    e.stopPropagation();
+}

@@ -206,6 +206,10 @@ left: 0;
 z-index: 1;
 position: absolute;
 }
+.landing-page .container {
+  z-index: 1000;
+  position: relative;
+  }
 .landing-page .header-area {
     position: relative;
     z-index: 2;
@@ -253,8 +257,16 @@ position: absolute;
   cursor: pointer;
   margin-top: 15px;
   display: none;
-  
   }
+  .header-area .toggle-menu.menu-active:before{
+  content: '';
+  border: 15px solid ;
+  border-color: transparent transparent white transparent ;
+  position: absolute;
+  top: 38px;
+  margin-left: -14px;
+  }
+
   .header-area .toggle-menu span {
   display: block;
   background-color: #FFF;
@@ -270,11 +282,23 @@ position: absolute;
     z-index: 2;
     color: white;
     text-align: center;
-    width: 100%;
+    width: 95%;
   } 
+  @media (max-width: 575px) {
+    .introduction-text h1 {
+      font-size: 26px;
+     
+    }
+  }
   .introduction-text h1 {
-    font-size: 34px;
+    font-size: 36px;
     margin: 0 0 12px;
+  }
+  @media (max-width: 575px) {
+    .introduction-text h1 {
+      font-size: 26px;
+     
+    }
   }
   .introduction-text h1 span {
   color: var(--main--color);
@@ -289,6 +313,30 @@ position: absolute;
   .header-area .links {
     display: none;
   }
+  .header-area .links.open {
+    background-color: white;
+    padding: 10px ;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    border-radius: 4px;
+    text-align: left;
+  }
+  .header-area .links.open li{
+    display: block;
+    margin: 10px;
+    
+    
+  }
+  .header-area .links.open li a {
+    
+    color: var(--main--color);
+    font-weight: bold;
+    
+  }
+
   .header-area .toggle-menu  {
     display: inline-block; 
   }
@@ -332,6 +380,17 @@ text-align: center;
 }
 .image-box img {
 width: 250px;
+
+}
+
+@media (max-width: 767px) {
+  .about-us  {
+   display: block;
+   text-align: center;
+  }
+  .about-us .info-box {
+    padding: 0px;
+   }
 
 }
 
@@ -379,7 +438,16 @@ line-height: 30px;
   width: 0;
   height: 100%;
   transition: all .5s;
-
+}
+@media (max-width: 767px) {
+  .skill-box {
+   display: block;   
+}
+.skill-name{
+  
+  width: 100%;
+  margin-bottom: 10px;
+}
 }
 /* End our skills */
 
@@ -387,6 +455,7 @@ line-height: 30px;
 .gallery {
 padding-top: 50px;
 padding-bottom: 50px;
+text-align: center;
 }
 .gallery h2{
   font-weight: bold;
@@ -501,6 +570,25 @@ top: 0;
    margin-bottom: 40px;
    position: relative;
   }
+
+  @media (max-width:767px) {  /* Landscape Phones */ 
+    
+    .timeline .timeline-content .right,
+    .timeline .timeline-content .left {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .timeline .timeline-content .left:before,
+    .timeline .timeline-content .right:before {
+    display: none;
+  }
+  .timeline .timeline-content .left .content:before,
+  .timeline .timeline-content .right .content:before{
+    display: none;
+  }
+
+  }
+
   .timeline .timeline-content .left {
   float: left;
 
@@ -521,9 +609,9 @@ top: 0;
     position: absolute; 
     right: -35px;
     border-radius: 50%;
-    top: 10px; 
-
+    top: 10px;
   }
+   
 
   .timeline .timeline-content .right {
     float: right;
@@ -576,10 +664,9 @@ top: 0;
     position: absolute;
     left: -20px;
     top: 10px;
-
-   
-
    }
+
+
 /* End Timline*/
 
 /* start Our Features */
@@ -605,6 +692,20 @@ margin: 0 0 60px;
   text-align: center;
   margin-bottom: 40px;
 }
+
+ @media (max-width: 991px) {
+  .features .feat-box {
+    width: calc( 100% / 2 );
+    
+  }
+
+ }
+ @media (max-width: 575px) {
+  .features .feat-box {
+    width: calc( 100% / 1 );
+    
+  }
+ }
 
 .features .feat-box img {
   width: 96px;
@@ -665,8 +766,13 @@ margin: 0 0 60px;
     font-size: 30px;
    position: relative;
   z-index: 2 ;
-
 }
+@media ( max-width:767px) {
+    .testimonials h2 { 
+      text-align: center;
+  }
+}
+
 .testimonials .container .ts-box {
 position: relative;
 z-index: 2;
@@ -676,6 +782,15 @@ background-color: #FFF;
 padding: 20px;
 
 }
+@media ( max-width:767px) {
+  .testimonials .container .ts-box {
+   
+    width: 100%;
+    float: none;
+    margin-bottom: 10px;
+    }
+}
+
 .testimonials .ts-box:not(:last-of-type) {
   margin-right: 1%;
 }
@@ -691,15 +806,29 @@ padding: 20px;
   overflow: hidden;
    
 } 
+@media (max-width: 991px) {
+  
+  .testimonials .ts-box  .info-perso {
+    text-align: center;
+     overflow: visible;
+  } 
+ }
 .testimonials .ts-box  .info-perso  img {
   float: left;
   border-radius: 50%;
   margin-right: 20px;
 } 
+@media (max-width: 991px) {
+  .testimonials .ts-box  .info-perso  img {
+    float: none;
+    margin-right: 0px;
+  }
+ }
 .testimonials .ts-box  .info-perso  h4 {
   margin: 14px 0 10px ;
   
 } 
+
 
 /* End testimonials */
 
@@ -741,9 +870,23 @@ float: right;
 width: 49%;
 
 }
+@media (max-width:767px) { 
+  .contact form .right {
+    float: none;
+    width: 100%;
+    
+    } 
+}
 .contact form .left {
   float: left;
   width: 49%;
+}
+@media (max-width:767px) { 
+  .contact form .left {
+    float: none;
+    width: 100%;
+    
+    } 
 }
 .contact form input:not([type="submit"]),
 .contact form textarea {
@@ -793,6 +936,15 @@ background-color: rgba(218, 218, 218, 0.19);
 }
 
 /* End  contact us*/
+
+/*-- Start Footer*/
+.footer{
+  text-align: center;
+  background-color: #333;
+  color: #EEE;
+  padding: 20px;
+}
+/*-- End Footer*/
 /* start  Grid system*/
 @media (min-width:576px) {  /* Landscape Phones */ 
   .container{
